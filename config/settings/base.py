@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "equipmentmanager.users.apps.UsersConfig",
+    "equipmentmanager.equipment",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -93,6 +94,8 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
