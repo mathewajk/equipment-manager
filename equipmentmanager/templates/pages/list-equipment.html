@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+{% for object in object_list %}
+<li>{{ object.instrument_type }}
+    <ul>
+        <li>{{ object.size }}</li>
+        <li>{{ object.stand }}</li>
+    </ul>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

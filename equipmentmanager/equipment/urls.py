@@ -8,5 +8,8 @@ urlpatterns = [
          name='add-group'),
     path(route='equipment/add',
          view=views.add_equipment,
-         name='add-equipment')
+         name='add-equipment'),
+    path(route='equipment/list',
+         view=views.list_equipment,
+         name='list-equipment')
 ]
