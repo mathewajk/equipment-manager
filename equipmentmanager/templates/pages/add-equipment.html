@@ -3,6 +3,7 @@
 
 {% block content %}
 <form method="POST">
+    {% csrf_token %}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Add equipment"/>
 </form>
