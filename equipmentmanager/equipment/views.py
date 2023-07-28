@@ -1,27 +1,36 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# class AddGroupView():
-#     ...
+from .forms import GroupForm, EquipmentForm
 
-# class EditGroupView():
-#     ...
+class AddGroupView(TemplateView):
 
-# class AddMemberView():
-#     ...
+    form = GroupForm
+    template_name = "pages/add-group.html"
 
-# class EditMemberView():
-#     ...
+    def get(self, request, *args, **kwargs):
+        self.obj_form = self.form()
+        return self.render_to_response(self.get_context_data(**kwargs))
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.obj_form
+        return context
+    
+add_group = AddGroupView.as_view()
 
-# class AddEquipmentView():
-#     ...
+class AddEquipmentView(TemplateView):
 
-# class EditEquipmentView():
-#     ...
+    form = EquipmentForm
+    template_name = "pages/add-group.html"
 
-# class AddPerformanceView():
-#     ...
-
-# class EditPerformanceView():
-#     ...
-
-
+    def get(self, request, *args, **kwargs):
+        self.obj_form = self.form()
+        return self.render_to_response(self.get_context_data(**kwargs))
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.obj_form
+        return context
+    
+add_equipment = AddEquipmentView.as_view()
