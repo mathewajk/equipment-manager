@@ -57,10 +57,10 @@ class Equipment(TimeStampedModel):
         (InstrumentSize.ONESIX, InstrumentSize.ONESIX)
     ]
 
-    instrument_type = models.CharField(max_length=50, null=False, blank=False)
+    instrument_type = models.CharField(max_length=50, choices=INSTRUMENT_CHOICES, null=False, blank=False)
 
-    number = models.IntegerField(null=True, blank=True)
-    size   = models.CharField(max_length=20, null=True, blank=True)
+    number = models.IntegerField(unique=True, null=True, blank=True)
+    size   = models.CharField(max_length=20, choices=SIZE_CHOICES, null=True, blank=True)
 
     stand    = models.ForeignKey('Equipment', null=True, blank=True, on_delete=models.CASCADE)
     owner    = models.ForeignKey('Member', null=True, blank=True, related_name="owner", on_delete=models.CASCADE)
