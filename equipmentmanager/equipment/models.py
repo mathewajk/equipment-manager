@@ -32,14 +32,14 @@ class Equipment(TimeStampedModel):
         ONESIX  = "1.6"
         
     INSTRUMENT_CHOICES = [
-        InstrumentType.NAGADO,
-        InstrumentType.SHIME,
-        InstrumentType.OKEDO,
-        InstrumentType.HIRA,
-        InstrumentType.UCHIWA, 
-        InstrumentType.CHAPPA,
-        InstrumentType.KANE,
-        InstrumentType.FUE
+        (InstrumentType.NAGADO, InstrumentType.NAGADO),
+        (InstrumentType.SHIME, InstrumentType.SHIME),
+        (InstrumentType.OKEDO, InstrumentType.OKEDO),
+        (InstrumentType.HIRA, InstrumentType.HIRA),
+        (InstrumentType.UCHIWA, InstrumentType.UCHIWA), 
+        (InstrumentType.CHAPPA, InstrumentType.CHAPPA),
+        (InstrumentType.KANE, InstrumentType.KANE),
+        (InstrumentType.FUE, InstrumentType.FUE)
     ]
 
     STAND_CHOICES = [
@@ -51,16 +51,16 @@ class Equipment(TimeStampedModel):
         StandType.NANAME
     ]
 
-    STAND_CHOICES = [
-        InstrumentSize.ONEFOUR,
-        InstrumentSize.ONEFIVE,
-        InstrumentSize.ONESIX
+    SIZE_CHOICES = [
+        (InstrumentSize.ONEFOUR, InstrumentSize.ONEFOUR),
+        (InstrumentSize.ONEFIVE, InstrumentSize.ONEFIVE),
+        (InstrumentSize.ONESIX, InstrumentSize.ONESIX)
     ]
 
     instrument_type = models.CharField(max_length=50, null=False, blank=False)
 
-    size     = models.IntegerField(null=True, blank=True)
-    number   = models.CharField(max_length=20, null=True, blank=True)
+    number = models.IntegerField(null=True, blank=True)
+    size   = models.CharField(max_length=20, null=True, blank=True)
 
     stand    = models.ForeignKey('Equipment', null=True, blank=True, on_delete=models.CASCADE)
     owner    = models.ForeignKey('Member', null=True, blank=True, related_name="owner", on_delete=models.CASCADE)
